@@ -4,6 +4,18 @@
     {
       "src": "api/server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "public/index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "public/style.css",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "public/script.js",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
