@@ -1,0 +1,166 @@
+/* Import a modern font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevents scrollbars on the body */
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e5e5e5;
+    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#chat-container {
+    /* Make the container fill most of the screen */
+    width: 100%;
+    height: 100%;
+    border-radius: 0; /* Remove radius for full screen */
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none; /* No shadow needed for full screen */
+}
+
+#chat-header {
+    background-color: #4a90e2;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    flex-shrink: 0; /* Prevents header from shrinking */
+}
+
+#chat-header h3 {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+#chat-window {
+    flex-grow: 1;
+    padding: 20px 25px; /* Increase horizontal padding */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.message {
+    padding: 12px 18px;
+    border-radius: 20px;
+    max-width: 70%; /* Adjust max-width for a wider screen */
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.user-message {
+    background-color: #4a90e2;
+    color: white;
+    align-self: flex-end;
+    border-bottom-right-radius: 5px;
+}
+
+.agent-message {
+    background-color: #f1f0f0;
+    color: #333;
+    align-self: flex-start;
+    border-bottom-left-radius: 5px;
+}
+
+/* Styles for formatted content from the agent */
+.agent-message strong {
+    font-weight: 500;
+    color: #2c3e50;
+}
+.agent-message ul, .agent-message ol {
+    padding-left: 20px;
+}
+.agent-message li {
+    margin-bottom: 5px;
+}
+.agent-message pre {
+    background-color: #2d2d2d;
+    color: #f8f8f2;
+    padding: 10px;
+    border-radius: 5px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+#input-container {
+    display: flex;
+    padding: 15px 25px; /* Increase horizontal padding */
+    border-top: 1px solid #e0e0e0;
+    background-color: #f9f9f9;
+    flex-shrink: 0; /* Prevents input from shrinking */
+}
+
+#userInput {
+    flex-grow: 1;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 12px 18px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#userInput:focus {
+    border-color: #4a90e2;
+}
+
+#sendButton {
+    border: none;
+    background-color: #4a90e2;
+    color: white;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    margin-left: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+#sendButton svg {
+    width: 24px;
+    height: 24px;
+}
+
+#sendButton:hover {
+    background-color: #357ABD;
+}
+
+/* Typing indicator animation */
+.typing-indicator {
+    display: flex;
+    align-items: center;
+}
+.typing-indicator span {
+    height: 8px;
+    width: 8px;
+    margin: 0 2px;
+    background-color: #aaa;
+    border-radius: 50%;
+    display: inline-block;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+.typing-indicator span:nth-of-type(2) {
+    animation-delay: -0.32s;
+}
+.typing-indicator span:nth-of-type(3) {
+    animation-delay: -0.16s;
+}
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1.0); }
+}
